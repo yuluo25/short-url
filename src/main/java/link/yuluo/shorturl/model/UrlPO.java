@@ -9,7 +9,10 @@ import lombok.Data;
  * @description:
  **/
 
-@Data
+//@Data
 public class UrlPO {
-    private
+
+    private String originUrlHash;
+
+    private String shortUrl;
 }
