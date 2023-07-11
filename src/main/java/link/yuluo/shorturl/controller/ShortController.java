@@ -21,6 +21,10 @@ public class ShortController {
         return shortUrl;
     }
 
+   public void visitOriginalWebsite(){
+
+    }
+
     @Resource
     IUrlService urlService;
 }

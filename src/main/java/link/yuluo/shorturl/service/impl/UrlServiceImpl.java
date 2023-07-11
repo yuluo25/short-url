@@ -1,5 +1,6 @@
 package link.yuluo.shorturl.service.impl;
 
+import link.yuluo.shorturl.model.UrlPO;
 import link.yuluo.shorturl.service.IUrlService;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,9 @@ import org.springframework.stereotype.Service;
 public class UrlServiceImpl  implements IUrlService {
     @Override
     public String getShortUrl(String originUrl) {
-        originUrl.hashCode();
+        UrlPO url=new UrlPO();
+        url.setOriginUrl(originUrl);
+        url.setOriginUrlHash(String.valueOf(originUrl.hashCode()));
         return null;
     }
 }
