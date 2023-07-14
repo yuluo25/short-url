@@ -17,6 +17,13 @@ public class UrlServiceImpl  implements IUrlService {
         UrlPO url=new UrlPO();
         url.setOriginUrl(originUrl);
         url.setOriginUrlHash(String.valueOf(originUrl.hashCode()));
-        return null;
+        String baseUrl="https://short.yuluo.link/";
+        url.setShortUrl(baseUrl+url.getOriginUrlHash());
+        return url.getShortUrl();
     }
+    @Override
+    public String visitOriginalWebsite(String hash){
+return null;
+    }
+
 }

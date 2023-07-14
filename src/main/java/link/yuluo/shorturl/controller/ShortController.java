@@ -3,9 +3,7 @@ package link.yuluo.shorturl.controller;
 import jakarta.annotation.Resource;
 import link.yuluo.shorturl.service.IUrlService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author yuluo
@@ -13,19 +11,28 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 7/10/2023 13:15
  * @description:
  **/
-@RestController
+@Controller
 public class ShortController {
 
     @GetMapping("/{originUrl}")
+    @ResponseBody
     public String getShortUrl(@PathVariable String originUrl){
         String shortUrl = urlService.getShortUrl(originUrl);
-        shortUrl="bilibili.com";
         return shortUrl;
     }
 
 
    public void visitOriginalWebsite(){
 
+    }
+
+    /**
+     * test
+     * @return
+     */
+    @PostMapping  ("/login")
+    public String login() {
+        return "redirect:http://www.baidu.com";
     }
 
     @Resource
