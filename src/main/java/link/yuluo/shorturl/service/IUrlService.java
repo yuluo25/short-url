@@ -9,5 +9,5 @@ package link.yuluo.shorturl.service;
 public interface IUrlService {
     String getShortUrl(String originUrl);
 
-    String visitOriginalWebsite(String hash);
+    String visitOriginalWebsite(String url);
 }

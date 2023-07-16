@@ -14,26 +14,18 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class ShortController {
 
-    @GetMapping("/{originUrl}")
+    @GetMapping("/get-short")
     @ResponseBody
-    public String getShortUrl(@PathVariable String originUrl){
+    public String getShortUrl(@RequestParam String originUrl) {
         String shortUrl = urlService.getShortUrl(originUrl);
         return shortUrl;
     }
 
-
-   public void visitOriginalWebsite(){
-
+    @GetMapping("/re/{url}")
+    public String visitOriginalWebsite(@PathVariable String url) {
+        return urlService.visitOriginalWebsite(url);
     }
 
-    /**
-     * test
-     * @return
-     */
-    @PostMapping  ("/login")
-    public String login() {
-        return "redirect:http://www.baidu.com";
-    }
 
     @Resource
     IUrlService urlService;
