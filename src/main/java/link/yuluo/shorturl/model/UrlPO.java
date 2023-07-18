@@ -19,6 +19,8 @@ public class UrlPO {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Lob
+    @Column(columnDefinition = "TEXT")
     private String originUrl;
 
     private String originUrlHash;
