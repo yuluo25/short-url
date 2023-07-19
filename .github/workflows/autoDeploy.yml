@@ -35,5 +35,5 @@ jobs:
           host: ${{ secrets.HOST }} # 设置为您的服务器IP地址
           username: ${{ secrets.SSH_USER }} # 设置为您的服务器用户名
           password: ${{ secrets.SSH_PASSWORD }} # 设置为您的服务器密码
-          source: 'shortUrl.jar'
+          source: 'target/shortUrl.jar'
           target: '/usr/local/yuluo'
