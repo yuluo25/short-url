@@ -37,3 +37,4 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }} # 设置为您的服务器密码
           source: 'target/shortUrl.jar'
           target: '/usr/local/yuluo'
+          strip_components: 1
