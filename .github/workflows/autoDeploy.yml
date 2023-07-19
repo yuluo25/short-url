@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@main
+      - uses: actions/checkout@v3
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: 'maven'
+      
+      - name: Build with Maven
+        run: mvn -B package --file pom.xml
+	
+	 # 重命名 jar 包 
+      - name: Rename target
+        run: |
+          mv target/*.jar target/shortUrl.jar
+          
+      # 将 jar 包上传到服务器
+      - name: Upload to server
+        uses: easingthemes/ssh-deploy@v2.2.11
+        env:
+          ARGS: '-avz --delete'
+          SOURCE: 'target/shortUrl.jar'
+          TARGET: '/usr/local/yuluo'
+          REMOTE_HOST: ${{ secrets.HOST }}
+          REMOTE_USER: ${{ secrets.USER }}
+          SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY}}
+      
+           # push后，用ssh连接服务器执行脚本    
+      - name: SSH
+        uses: fifsky/ssh-action@master
+        with:
+          command: |
+            sh startShrotUrl.sh
+          host: ${{ secrets.HOST }}
+          user: ${{ secrets.USER }}
+          key: ${{ secrets.PRIVATE_KEY}}
