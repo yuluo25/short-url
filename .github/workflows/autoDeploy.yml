@@ -45,7 +45,7 @@ jobs:
         with:
           command: | # 命令中的 & 表示在后台运行进程
             cd /usr/local/yuluo
-            sh start.sh
+            sh startShortUrl.sh
           host: ${{ secrets.HOST }}
           user: ${{ secrets.SSH_USER }}
           pass: ${{ secrets.SSH_PASSWORD }}
