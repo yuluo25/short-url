@@ -38,3 +38,14 @@ jobs:
           source: 'target/shortUrl.jar'
           target: '/usr/local/yuluo'
           strip_components: 1
+      
+      - name: 在服务器上执行 java -jar，请确保服务器安装了 JDK
+        if: always()
+        uses: fifsky/ssh-action@master
+        with:
+          command: | # 命令中的 & 表示在后台运行进程
+            cd /usr/local/yuluo
+            sh start.sh
+          host: ${{ secrets.HOST }}
+          user: ${{ secrets.SSH_USER }}
+          pass: ${{ secrets.SSH_PASSWORD }}
