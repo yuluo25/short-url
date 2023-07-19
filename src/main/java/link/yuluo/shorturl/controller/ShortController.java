@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
  * @description:
  **/
 @Controller
+@CrossOrigin
 public class ShortController {
 
     @GetMapping("/get-short")
