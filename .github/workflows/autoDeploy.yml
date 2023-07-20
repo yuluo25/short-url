@@ -52,7 +52,7 @@ jobs:
       - name: start spring boot
         uses: appleboy/ssh-action@v0.1.10
         with:
-          command_timeout: 1m
+          command_timeout: 5m
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
