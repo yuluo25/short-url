@@ -58,4 +58,4 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
           script: | # 命令中的 & 表示在后台运行进程
             cd /usr/local/yuluo
-            nohup sh startShortUrl.sh &
+            sh startShortUrl.sh 
