@@ -27,6 +27,11 @@ public class ShortController {
         return urlService.visitOriginalWebsite(url);
     }
 
+    @GetMapping("/")
+    @ResponseBody
+    public String test(){
+        return "hello world";
+    }
 
     @Resource
     IUrlService urlService;
