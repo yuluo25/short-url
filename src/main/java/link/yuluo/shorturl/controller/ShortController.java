@@ -22,7 +22,7 @@ public class ShortController {
         return shortUrl;
     }
 
-    @GetMapping("/{url}")
+    @GetMapping("/re/{url}")
     public String visitOriginalWebsite(@PathVariable String url) {
         return urlService.visitOriginalWebsite(url);
     }
