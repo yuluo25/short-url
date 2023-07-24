@@ -22,15 +22,9 @@ public class ShortController {
         return shortUrl;
     }
 
-    @GetMapping("/re/{url}")
+    @GetMapping("/{url}")
     public String visitOriginalWebsite(@PathVariable String url) {
         return urlService.visitOriginalWebsite(url);
-    }
-
-    @GetMapping("/")
-    @ResponseBody
-    public String test(){
-        return "hello world";
     }
 
     @Resource
