@@ -6,8 +6,7 @@ spring:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQLDialect
-    hibernate:
-      ddl-auto: update
+
 custom:
   base-url: http://short.yuluo.link:8080/re/
 #  base-url: http://192.168.31.211:8080/re/
